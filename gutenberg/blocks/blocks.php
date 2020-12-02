@@ -126,6 +126,9 @@ if (!class_exists( 'Metatavu\LinkedEvents\Wordpress\Gutenberg\Blocks\Blocks' ) )
           "filter-locality-fi" => [
             'type' => 'string'
           ],
+          "filter-postal-code" => [
+            'type' => 'string'
+          ],
           "filter-language" => [
             'type' => 'string'
           ],
@@ -321,6 +324,7 @@ if (!class_exists( 'Metatavu\LinkedEvents\Wordpress\Gutenberg\Blocks\Blocks' ) )
      *   @type string $sort Sort the returned events in the given order. Possible sorting criteria are &#39;start_time&#39;, &#39;end_time&#39;, &#39;days_left&#39; and &#39;last_modified_time&#39;. The default ordering is &#39;-last_modified_time&#39;. (optional)
      *   @type int $page request particular page in paginated results (optional)
      *   @type int $pageSize request that server delivers page_size results in response (optional)
+     *   @type string $postalCode Search for events with given postal codes. Multiple postal codes can be entered by separating them by a comma (optional)
      *   @type string $addressLocalityFi Search for events in given address localities (fi). Multiple localities can be entered by separating them by a comma (optional)
      *   @type string $addressLocalitySv Search for events in given address localities (sv). Multiple localities can be entered by separating them by a comma (optional)
      *   @type string $addressLocalityEn Search for events in given address localities (en). Multiple localities can be entered by separating them by a comma (optional)
@@ -351,6 +355,7 @@ if (!class_exists( 'Metatavu\LinkedEvents\Wordpress\Gutenberg\Blocks\Blocks' ) )
       $sort = $this->getSearchParam("sort", $attributes["sort"]);
       $page = $this->getSearchParam("page"); 
       $pageSize = $this->parseInt($attributes["page-size"]);
+      $postalCode = $this->getSearchParamsCDT("postal_code", $attributes["filter-postal-code"]);
       $addressLocalityFi = $this->getSearchParamsCDT("address_locality_fi", $attributes["filter-locality-fi"]);
       $addressLocalitySv = null;
       $addressLocalityEn = null;
@@ -377,6 +382,7 @@ if (!class_exists( 'Metatavu\LinkedEvents\Wordpress\Gutenberg\Blocks\Blocks' ) )
           $publisher, 
           $sort,
           $page, 
+          $postalCode,
           $pageSize, 
           $addressLocalityFi, 
           $addressLocalitySv, 

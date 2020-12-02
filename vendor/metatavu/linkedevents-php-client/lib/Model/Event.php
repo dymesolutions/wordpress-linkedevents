@@ -87,7 +87,8 @@ class Event implements ArrayAccess
         'dataSource' => 'string',
         'createdBy' => 'string',
         'lastModifiedBy' => 'string',
-        'publisher' => 'string'
+        'publisher' => 'string',
+        'postalCode' => 'string'
     ];
 
     /**
@@ -127,7 +128,8 @@ class Event implements ArrayAccess
         'dataSource' => null,
         'createdBy' => null,
         'lastModifiedBy' => null,
-        'publisher' => null
+        'publisher' => null,
+        'postalCode' => null
     ];
 
     public static function swaggerTypes()
@@ -177,7 +179,8 @@ class Event implements ArrayAccess
         'dataSource' => 'data_source',
         'createdBy' => 'created_by',
         'lastModifiedBy' => 'last_modified_by',
-        'publisher' => 'publisher'
+        'publisher' => 'publisher',
+        'postalCode' => 'postal_code'
     ];
 
 
@@ -218,7 +221,8 @@ class Event implements ArrayAccess
         'dataSource' => 'setDataSource',
         'createdBy' => 'setCreatedBy',
         'lastModifiedBy' => 'setLastModifiedBy',
-        'publisher' => 'setPublisher'
+        'publisher' => 'setPublisher',
+        'postalCode' => 'setPostalCode'
     ];
 
 
@@ -259,7 +263,8 @@ class Event implements ArrayAccess
         'dataSource' => 'getDataSource',
         'createdBy' => 'getCreatedBy',
         'lastModifiedBy' => 'getLastModifiedBy',
-        'publisher' => 'getPublisher'
+        'publisher' => 'getPublisher',
+        'postalCode' => 'getPostalCode'
     ];
 
     public static function attributeMap()
@@ -326,6 +331,7 @@ class Event implements ArrayAccess
         $this->container['createdBy'] = isset($data['createdBy']) ? $data['createdBy'] : null;
         $this->container['lastModifiedBy'] = isset($data['lastModifiedBy']) ? $data['lastModifiedBy'] : null;
         $this->container['publisher'] = isset($data['publisher']) ? $data['publisher'] : null;
+        $this->container['postalCode'] = isset($data['postalCode']) ? $data['postalCode'] : null;
     }
 
     /**
@@ -1067,6 +1073,25 @@ class Event implements ArrayAccess
     {
         $this->container['publisher'] = $publisher;
 
+        return $this;
+    }
+     /**
+     * Gets postalCode
+     * @return string
+     */
+    public function getPostalCode()
+    {
+        return $this->container['postalCode'];
+    }
+
+    /**
+     * Sets postalCode
+     * @param string $postalCode postal code.
+     * @return $this
+     */
+    public function setPostalCode($postalCode)
+    {
+        $this->container['postalCode'] = $postalCode;
         return $this;
     }
     /**

@@ -93,6 +93,14 @@
         "Vain kertaluontoiset"
       ],
 
+      "Show events with chosen postal codes": [
+        "Näytä tapahtumat valituilla postinumeroilla"
+      ],
+
+      "Postal code": [
+        "Postinumero"
+      ],
+
       "Show events with chosen language": [
         "Näytä tapahtumat valitulla kielellä"
       ],

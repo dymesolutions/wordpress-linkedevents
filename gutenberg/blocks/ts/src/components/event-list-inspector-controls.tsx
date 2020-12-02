@@ -73,6 +73,7 @@ class EventList extends React.Component<Props, State> {
         { this.renderPageSize() }
         { this.renderLanguageFilter() }
         { this.renderVisibleListFields() }
+        { this.renderPostalCodeFilter() }
         { this.renderAddressLocalityFi() }
       </InspectorControls>
     );
@@ -131,6 +132,17 @@ class EventList extends React.Component<Props, State> {
     const hint = __("You may filter events by place address locality name (finnish)", "linkedevents");
     return this.renderTextControlFilter(title, hint, "locality-fi");
   }
+
+  /**
+   * Renders postal code filter
+   */
+  private renderPostalCodeFilter = () => {
+    const title = __('Postal code', 'linkedevents');
+    const hint = __('Show events with chosen postal codes', 'linkedevents')
+
+    return this.renderTextControlFilter(title, hint, 'postal-code')
+  }
+
 
   /**
    * Renders keyword filter

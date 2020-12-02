@@ -48,6 +48,9 @@ registerBlockType('linkedevents/list-block', {
     "filter-locality-fi": {
       type: 'string'
     },
+    "filter-postal-code": {
+      type: 'string'
+    },
     "filter-language": {
       type: 'string'
     },
